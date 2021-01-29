@@ -10,11 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_29_131437) do
+ActiveRecord::Schema.define(version: 2021_01_29_132128) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.integer "customer_id"
+    t.string "name"
+    t.string "postcode"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "admins", force: :cascade do |t|
     t.string "email"
     t.string "encrypted_password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "customer_id"
+    t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,6 +47,13 @@ ActiveRecord::Schema.define(version: 2021_01_29_131437) do
     t.string "email"
     t.string "encrypted_password"
     t.boolean "is_deleted", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.boolean "is_status", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
