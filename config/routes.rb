@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
@@ -12,13 +13,19 @@ Rails.application.routes.draw do
   }
 
   scope module: :public do
-    get 'my_page' => 'customers#show'
-    get 'edit' => 'customers#edit'
+    get 'customers/my_page' => 'customers#show'
+    get 'customers/edit' => 'customers#edit'
     patch 'customers' => 'customers#update'
-    get 'unsubscribe' => 'customers#unsubscribe'
-    patch 'withdraw' => 'customers#withdraw'
-    
-    
+    get 'customers/unsubscribe' => 'customers#unsubscribe'
+    patch 'customers/withdraw' => 'customers#withdraw'
+
+    resources :items, only: [:index, :show]
+    resources :carts, only: [:index, :update, :destroy, :create]
+    delete 'cart/destroy_all' => 'carts#destroy_all'
+    resources :orders, only: [:index, :show, :new, :create]
+    post 'orders/confirm' => 'orders#confirm'
+    get 'orders/complete' => 'orders#complete'
+    resources :addresses, only: [:index, :create, :edit, :destroy, :update]
   end
 
 
