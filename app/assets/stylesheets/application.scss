@@ -27,3 +27,13 @@ header {
   width: 100%;
   height: 100px;
 }
+
+.customer-header {
+  float: right;
+  display: flex;
+}
+
+.customer-header-nav {
+  margin: 30px 60px 0 0;
+  font-size: 20px;
+}
