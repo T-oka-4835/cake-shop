@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   }
 
   devise_for :customers, controllers: {
-    sessions:      'customers/sessions',
-    passwords:     'customers/passwords',
-    registrations: 'customers/registrations'
+    sessions:      'publics/sessions',
+    passwords:     'publics/passwords',
+    registrations: 'publics/registrations'
   }
 
-  scope module: :public do
+  scope module: :publics do
     get 'customers/my_page' => 'customers#show'
     get 'customers/edit' => 'customers#edit'
     patch 'customers' => 'customers#update'
