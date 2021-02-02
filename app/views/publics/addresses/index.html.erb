@@ -1,0 +1,13 @@
+<h4>配送先登録/一覧</h4>
+<%= form_with model: @address, url: addresses_path, local: true do |f| %>
+  <div>郵便番号(ハイフンなし)</div>
+  <%= f.text_field :postcode %>
+
+  <div>住所</div>
+  <%= f.text_field :address %>
+
+  <div>宛名</div>
+  <%= f.text_field :name %>
+
+  <%= f.submit "新規登録" %>
+<% end %>
