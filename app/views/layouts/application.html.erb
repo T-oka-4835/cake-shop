@@ -25,9 +25,23 @@
           <div class="customer-header-nav">
             <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
           </div>
-      </div>
+        <% elsif admin_signed_in? %>
+          <div class="customer-header-nav">
+            <%= link_to "商品一覧", "#" %>
+          </div>
+          <div class="customer-header-nav">
+            <%= link_to "会員一覧", "#" %>
+          </div>
+          <div class="customer-header-nav">
+            <%= link_to "注文履歴一覧", "#" %>
+          </div>
+          <div class="customer-header-nav">
+            <%= link_to "ジャンル一覧", "#" %>
+          </div>
+          <div class="customer-header-nav">
+            <%= link_to "ログアウト", "#" %>
+          </div>
         <% else %>
-      <div class="customer-header">
           <div class="customer-header-nav">
             <%= link_to "About", "#" %>
           </div>

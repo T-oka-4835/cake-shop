@@ -28,5 +28,12 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about'
     resources :addresses, only: [:index, :create, :edit, :destroy, :update]
   end
+
+  namespace :admins do
+    resources :items
+  end
+
+
+
   root 'homes#top'
 end
