@@ -13,10 +13,11 @@ Rails.application.routes.draw do
   }
 
   scope module: :publics do
+    patch 'customers/withdraw' => 'customers#withdraw'
     get 'customers/my_page' => 'customers#show'
     resources :customers, only: [:edit, :update]
     get 'customers/unsubscribe' => 'customers#unsubscribe'
-    patch 'customers/withdraw' => 'customers#withdraw'
+
 
     resources :items, only: [:index, :show]
     resources :carts, only: [:index, :update, :destroy, :create]

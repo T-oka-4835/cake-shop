@@ -7,4 +7,4 @@
 </p>
 
 <%= link_to "退会しない", edit_customer_path(@customer) %>
-<%= link_to "退会する", customers_withdraw_path %>
+<%= link_to "退会する", customers_withdraw_path(@customer), method: :patch %>
