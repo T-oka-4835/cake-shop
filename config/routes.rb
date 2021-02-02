@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   scope module: :publics do
     get 'customers/my_page' => 'customers#show'
-    get 'customers/edit' => 'customers#edit'
+    resources :customers, only: [:edit]
     patch 'customers' => 'customers#update'
     get 'customers/unsubscribe' => 'customers#unsubscribe'
     patch 'customers/withdraw' => 'customers#withdraw'
