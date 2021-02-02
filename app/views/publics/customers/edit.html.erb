@@ -1,1 +1,48 @@
 <h4>会員情報編集</h4>
+
+<%= form_with model: @customer, url: customer_path, class: 'new-customer', local: true do |f| %>
+
+  <div class="field">
+    <%= f.label :'(姓)' %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :'(名)' %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :'(セイ)' %><br />
+    <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :'(メイ)' %><br />
+    <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :'メールアドレス' %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :'郵便番号(ハイフンなし)' %><br />
+    <%= f.text_field :postcode, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :'住所' %><br />
+    <%= f.text_field :address, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :'電話番号' %><br />
+    <%= f.text_field :phonenumber, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "編集内容を保存" %>
+  </div>
+<% end %>
