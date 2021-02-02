@@ -39,6 +39,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :'電話番号' %><br />
+    <%= f.text_field :phonenumber, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
     <%= f.label :'パスワード' %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %>文字以上)</em>
