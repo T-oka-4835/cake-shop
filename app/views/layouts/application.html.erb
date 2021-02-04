@@ -39,7 +39,7 @@
             <%= link_to "ジャンル一覧", "#" %>
           </div>
           <div class="customer-header-nav">
-            <%= link_to "ログアウト", "#" %>
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
           </div>
         <% else %>
           <div class="customer-header-nav">
