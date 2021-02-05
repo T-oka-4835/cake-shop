@@ -1,1 +1,13 @@
 <h4>商品一覧</h4>
+ <% @items.each do |item| %>
+    <div>
+      <%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg', class: "item-picture", fallback: "no_image.jpg" %>
+    </div>
+    <div>
+      <%= item.name %>
+    </div>
+    <div>
+      ¥<%= item.price %>
+    </div>
+  <% end %>
+</div>
