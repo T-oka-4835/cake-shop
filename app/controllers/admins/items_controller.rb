@@ -6,6 +6,7 @@ class Admins::ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @genres = Genre.all
   end
 
   def create
