@@ -9,13 +9,13 @@
     <th></th>
   </tr>
   <tbody>
-    <% @items.each do |item| %>
+    <% @carts.each do |cart| %>
       <tr>
         <td>
-          <%= item.name %>
+          <%= cart.item.name %>
         </td>
         <td>
-          <%= item.price %>
+          <%= cart.item.price %>
         </td>
         <td>
           <p>数量</p>

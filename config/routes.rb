@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe' => 'customers#unsubscribe'
 
 
-    resources :items, only: [:index, :show]
+    resources :items, only: [:index, :show, :create]
     resources :carts, only: [:index, :update, :destroy, :create]
     delete 'cart/destroy_all' => 'carts#destroy_all'
     resources :orders, only: [:index, :show, :new, :create]
