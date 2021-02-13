@@ -35,5 +35,11 @@
 </table>
 
 <p>合計金額</p>
-<p></p>
+  <% total_price = 0 %>
+  <% @carts.each do |cart| %>
+    <% one_item = cart.item.price * cart.amount %>
+  <% total_price += one_item %>
+  <% end %>
+<%= total_price %>
+
 <%= link_to "買い物を続ける", items_path %>
