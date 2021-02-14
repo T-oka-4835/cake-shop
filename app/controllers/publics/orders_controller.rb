@@ -7,6 +7,8 @@ class Publics::OrdersController < ApplicationController
   end
 
   def new
+    @customer = current_customer
+    @addresses = Address.all 
   end
 
   def create
