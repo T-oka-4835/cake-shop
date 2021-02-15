@@ -1,23 +1,23 @@
-<h4>
-  ようこそ、ながのCAKEへ！<br>
-  このサイトは、ケーキ販売のECサイトになります。<br>
-  会員でない方も商品の閲覧はできますが、<br>
-  購入には会員登録が必要になります。
-</h4>
+<div class ="top-container">
+  <div class="top-message">
+    ようこそ、ながのCAKEへ！<br>
+    このサイトは、ケーキ販売のECサイトになります。<br>
+    会員でない方も商品の閲覧はできますが、<br>
+    購入には会員登録が必要になります。
+  </div>
 
-<div>
   <h4>新着商品</h4>
-  <% @items.each do |item| %>
-    <div>
-      <%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg', class: "item-picture", fallback: "no_image.jpg" %>
-    </div>
-    <div>
-      <%= item.name %>
-    </div>
-    <div>
-      ¥<%= item.price %>
-    </div>
-  <% end %>
+  <div class = "new-products">
+    <% @items.each do |item| %>
+      <div class ="new-products-container">
+        <%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg', class: "item-picture", fallback: "no_image.jpg" %>
+        <div>
+           <p><%= item.name %></p>
+           <p>¥<%= item.price %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <%= link_to '管理者ログイン', new_admin_session_path %>
