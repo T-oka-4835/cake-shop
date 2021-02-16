@@ -7,11 +7,16 @@ class Publics::OrdersController < ApplicationController
   end
 
   def new
+    @order = Order.new
     @customer = current_customer
-    @addresses = Address.all 
+    @addresses = Address.all
   end
 
   def create
+    order = Order.new(order_params)
+    if order.save
+      redirect_to orders_confirm_path
+    end
   end
 
   def confirm
@@ -19,5 +24,11 @@ class Publics::OrdersController < ApplicationController
 
   def complete
   end
+
+  private
+  def order_params
+    params.require(:order).permit(:customer_id, :shipping_cost, :pay_way, :name, :postcode, :address)
+  end
+
 
 end

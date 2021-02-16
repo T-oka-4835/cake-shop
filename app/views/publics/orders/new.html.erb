@@ -21,6 +21,18 @@
   </div>
   <div>
      <%= f.radio_button :orders, "新しいお届け先" %>新しいお届け先
+     <div>
+       <%= f.label :"郵便番号(ハイフンなし)" %>
+       <%= f.text_field :postcode %>
+     </div>
+     <div>
+       <%= f.label :"住所" %>
+       <%= f.text_field :address %>
+     </div>
+     <div>
+       <%= f.label :"宛名" %>
+       <%= f.text_field :name %>
+     </div>
   </div>
 
   <%= f.submit "確認画面へ進む" %>
