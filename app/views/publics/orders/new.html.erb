@@ -1,6 +1,6 @@
 <h4>注文情報入力</h4>
 
-<%= form_with model: @order, url: orders_path, local: true do |f| %>
+<%= form_with model: @order, url: orders_confirm_path, local: true do |f| %>
   <p>注文方法</p>
   <div>
     <%= f.radio_button :pay_way, "クレジットカード" %>クレジットカード
