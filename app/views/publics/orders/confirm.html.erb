@@ -16,15 +16,42 @@
           <%= cart.item.price %>
         </td>
         <td>
-          <!--<= cart.item.amount %>-->
+          <%= cart.amount.to_i %>
         </td>
          <td>
-          <!--<= cart.item.price * cart.amount.to_i %>-->
-        </td>
-        <td>
-          <%= link_to "削除する", cart_path(cart), method: :delete %>
+          <%= cart.item.price * cart.amount.to_i %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<table>
+  <tbody>
+    <tr>
+      <th>送料</th>
+      <td>800</td>
+    </tr>
+    <tr>
+      <th>商品合計</th>
+      <td>
+        <% total_price = 0 %>
+        <% @carts.each do |cart| %>
+          <% one_item = cart.item.price * cart.amount %>
+          <% total_price += one_item %>
+        <% end %>
+        <%= total_price %>
+      </td>
+    </tr>
+    <tr>
+      <th>請求金額</th>
+      <td><%= total_price + 800 %></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>支払方法</p>
+<%= @order.pay_way %>
+
+<p>お届け先</p>
+<%= @order.postcode + @order.address + @order.name %>
