@@ -20,18 +20,19 @@ class Publics::OrdersController < ApplicationController
     @customer = current_customer
     @carts = @customer.carts.all
 
-    if [:orders] == "ご自身の住所"
+    if params[:order][:order] == "0"
       @order.postcode = @customer.postcode
-      @order.address = @order.address
-      @order.last_name + @order.first_name
-    elsif [:order] == "登録済住所から選択"
+      @order.address = @customer.address
+      @order.name = @customer.last_name + @customer.first_name
+    elsif params[:order][:order] == "1"
+      @address = Address.find(params[:order][:id])
       @order.postcode = @address.postcode
       @order.address = @address.address
       @order.name = @address.name
     else
-      @order.postcode = Order.find_by(postcode: @order.postcode)
-      @order.address = Order.find_by(address: @order.address)
-      @order.name = Order.find_by(name: @order.name)
+      @order.postcode = params[:order][:postcode]
+      @order.address = params[:order][:address]
+      @order.name = params[:order][:name]
     end
 
   end
@@ -41,7 +42,7 @@ class Publics::OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:customer_id, :shipping_cost, :pay_way, :name, :postcode, :address, :order)
+    params.require(:order).permit(:customer_id, :shipping_cost, :pay_way, :name, :postcode, :address)
   end
 
 end
