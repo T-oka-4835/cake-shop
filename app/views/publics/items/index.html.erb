@@ -1,13 +1,18 @@
-<h4>商品一覧</h4>
- <% @items.each do |item| %>
-    <div>
-      <%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg', class: "item-picture", fallback: "no_image.jpg" %>
-    </div>
-    <div>
-      <%= link_to item.name,  item_path(item) %>
-    </div>
-    <div>
-      ¥<%= item.price %>
-    </div>
-  <% end %>
+<div class="item-container">
+  <h4 class="item-title">商品一覧(全<%= @items.count %>件)</h4>
+  <div class="new-product">
+    <% @items.each do |item| %>
+      <div class ="new-products-container">
+        <div>
+          <%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg', class: "item-picture", fallback: "no_image.jpg" %>
+        </div>
+        <div>
+          <%= link_to item.name, item_path(item) %>
+        </div>
+        <div>
+          ¥<%= item.price %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

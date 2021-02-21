@@ -1,24 +1,30 @@
 <%= form_with model: @cart, url: carts_path, local: true do |f| %>
-  <div>
-    <%= attachment_image_tag @item, :image, :fill, 100, 100, format: 'jpeg', class: "item-picture", fallback: "no_image.jpg" %>
-  </div>
-  <div>
-    <%= @item.name %>
-  </div>
-
-  <div>
-    <%= @item.explanation %>
-  </div>
-  <div>
-    ¥<%= @item.price %>(税込)
-  </div>
-  <div>
-    <%= f.number_field :amount, min: 1, max: 10, placeholder: "個数選択" %>個
-  </div>
-  <div>
-    <%= f.hidden_field :item_id, :value => @item.id %>
-  </div>
-  <div>
-    <%= f.submit 'カートに入れる' %>
+  <div class="row">
+    <div class="col-lg-5 item-left">
+      <div>
+        <%= attachment_image_tag @item, :image, :fill, 100, 100, format: 'jpeg', class: "item-picture", fallback: "no_image.jpg" %>
+      </div>
+    </div>
+    <div class="col-lg-5 item-right">
+      <div class="item-name">
+        <%= @item.name %>
+      </div>
+      <div class="item-explanation">
+        <%= @item.explanation %>
+      </div>
+      <div class="item-price">
+        ¥<%= @item.price %>(税込)
+      </div>
+      <div class="item-amount">
+        <%= f.number_field :amount, min: 1, max: 10, placeholder: "個数選択" %>個
+      </div>
+      <div>
+        <%= f.hidden_field :item_id, :value => @item.id %>
+      </div>
+      <div class="item-cart">
+        <%= f.submit 'カートに入れる' %>
+      </div>
+    </div>
   </div>
 <% end %>
+
