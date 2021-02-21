@@ -12,6 +12,9 @@
   <body>
     <header>
       <div class="customer-header">
+        <div class="customer-header-nav">
+          <%= link_to "LOGO", root_path %>
+        </div>
         <% if customer_signed_in? %>
           <div class="customer-header-nav">
             <%= link_to "マイページ", customers_my_page_path %>
