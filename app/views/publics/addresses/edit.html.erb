@@ -1,15 +1,21 @@
-<h4>配送先編集</h4>
+<h4 class="devise-title">配送先編集</h4>
 
 <%= form_with model: @address, url: address_path, local: true do |f| %>
-
-  <div>郵便番号(ハイフンなし)</div>
-  <%= f.text_field :postcode %>
-
-  <div>住所</div>
-  <%= f.text_field :address %>
-
-  <div>宛名</div>
-  <%= f.text_field :name %>
-
-  <%= f.submit "変更内容を保存" %>
+  <ul>
+    <li class="devise-field">
+      <%= f.label :"郵便番号(ハイフンなし)" %>
+      <%= f.text_field :postcode %>
+    </li>
+    <li class="devise-field">
+      <%= f.label :"住所" %>
+      <%= f.text_field :address %>
+    </li>
+    <li class="devise-field">
+      <%= f.label :"宛名" %>
+      <%= f.text_field :name %>
+    </li>
+    <li class="address-submit">
+      <%= f.submit "変更内容を保存" %>
+    </li>
+  </ul>
 <% end %>
