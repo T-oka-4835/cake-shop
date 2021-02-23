@@ -12,7 +12,6 @@
           <%= f.text_field :first_name %>
         </div>
       </li>
-
       <li class="devise-field">
         <%= f.label :'フリガナ' %>
         <%= f.text_field :last_name_kana %>
@@ -20,42 +19,35 @@
            <%= f.text_field :first_name_kana  %>
         </div>
       </li>
-
-    <li class="devise-field">
-      <%= f.label :'メールアドレス' %>
-      <%= f.email_field :email %>
-    </li>
-
-    <li class="devise-field">
-      <%= f.label :'郵便番号' %>
-      <%= f.text_field :postcode %>
-    </li>
-
-    <li class="devise-field">
-      <%= f.label :'住所' %>
-      <%= f.text_field :address %>
-    </li>
-
-    <li class="devise-field">
-      <%= f.label :'電話番号' %>
-      <%= f.text_field :phonenumber %>
-    </li>
-
-    <li class="devise-field">
-      <%= f.label :'パスワード' %>
-      <%= f.password_field :password %>
-    </li>
-
-    <li class="devise-field">
-      <%= f.label :'パスワード(確認用)' %>
-      <%= f.password_field :password_confirmation %>
-    </li>
-
-    <li class="devise-field actions">
-      <%= f.submit "新規登録" %>
-    </li>
+      <li class="devise-field">
+        <%= f.label :'メールアドレス' %>
+        <%= f.email_field :email %>
+      </li>
+      <li class="devise-field">
+        <%= f.label :'郵便番号' %>
+        <%= f.text_field :postcode %>
+      </li>
+      <li class="devise-field">
+        <%= f.label :'住所' %>
+        <%= f.text_field :address %>
+      </li>
+      <li class="devise-field">
+        <%= f.label :'電話番号' %>
+        <%= f.text_field :phonenumber %>
+      </li>
+      <li class="devise-field">
+        <%= f.label :'パスワード' %>
+        <%= f.password_field :password %>
+      </li>
+      <li class="devise-field">
+        <%= f.label :'パスワード(確認用)' %>
+        <%= f.password_field :password_confirmation %>
+      </li>
+      <li class="devise-field actions">
+        <%= f.submit "新規登録" %>
+      </li>
+    </ul>
   <% end %>
-  </ul>
 
   <h4 class="devise-link-title">既に登録済の方</h4>
   <div class="devise-link">

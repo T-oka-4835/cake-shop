@@ -1,50 +1,44 @@
 <h4 class="devise-title">会員情報編集</h4>
 
 <%= form_with model: @customer, url: customer_path, class: 'new-customer', local: true do |f| %>
+  <ul>
+    <li class="devise-field">
+      <%= f.label :'名前' %>
+      <%= f.text_field :last_name %>
+      <div class="field-right">
+        <%= f.text_field :first_name %>
+      </div>
+    </li>
+    <li class="devise-field">
+      <%= f.label :'フリガナ' %><br />
+      <%= f.text_field :last_name_kana %>
+      <div class="field-right">
+        <%= f.text_field :first_name_kana  %>
+      </div>
+    </li>
+    <li class="devise-field">
+      <%= f.label :'メールアドレス' %>
+      <%= f.email_field :email %>
+    </li>
+    <li class="devise-field">
+      <%= f.label :'郵便番号(ハイフンなし)' %><br />
+      <%= f.text_field :postcode %>
+    </li>
+    <li class="devise-field">
+      <%= f.label :'住所' %><br />
+      <%= f.text_field :address %>
+    </li>
 
-  <div class="field">
-    <%= f.label :'(姓)' %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "email" %>
-  </div>
+    <li class="devise-field">
+      <%= f.label :'電話番号' %><br />
+      <%= f.text_field :phonenumber %>
+    </li>
 
-  <div class="field">
-    <%= f.label :'(名)' %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :'(セイ)' %><br />
-    <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :'(メイ)' %><br />
-    <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :'メールアドレス' %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :'郵便番号(ハイフンなし)' %><br />
-    <%= f.text_field :postcode, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :'住所' %><br />
-    <%= f.text_field :address, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :'電話番号' %><br />
-    <%= f.text_field :phonenumber, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "編集内容を保存" %>
-  </div>
+    <li class="devise-field actions">
+      <%= f.submit "編集内容を保存" %>
+      <div class="unsubscribe-link">
+        <%= link_to "退会する",  customers_unsubscribe_path %>
+      </div>
+    </li>
+  </ul>
 <% end %>
-
-<%= link_to "退会する",  customers_unsubscribe_path %>
