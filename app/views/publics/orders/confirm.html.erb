@@ -55,3 +55,7 @@
 
 <p>お届け先</p>
 <%= @order.postcode + "" + @order.address + "" + @order.name %>
+
+<%= form_with model: @order, url: orders_path %>
+
+<% end %>
