@@ -13,6 +13,9 @@ class Publics::OrdersController < ApplicationController
   end
 
   def create
+    @order = Order.new(order_params)
+    @order.save
+    redirect_to orders_complete_path
   end
 
   def confirm
